@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .wrapper {
+            position: absolute;
+            /*background: rgba(0, 0, 0,0.4);*/
+            max-width: 550px;
+            width: 100%;
+            height: 30px;
+            margin-top: 8px;
+            margin-left: 550px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 5px;
+            color: #3498db;
+        }
+
+            .wrapper .input {
+                width: 85%;
+                padding: 15px 20px;
+                border: none;
+                border-radius: 5px;
+                font-weight: bold;
+                color: #3498db;
+            }
+
+        .searchbtn {
+            margin-top: 0px;
+            display: flex;
+            top: 0px;
+        }
+        
+         .myfooter{
+             background-color:Highlight;
+         }   
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="searchbtn"><img src="~/Images/loogo PNG-01.png" style="height:60px; width:300px;" /></div>
+
+
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="font-size:x-large;margin-top:7px">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Product", "Index", "Products")</li>
+
+
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class=" myfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="searchbtn"><img src="~/Images/loogo PNG-01.png" style="height:100px; width:300px;margin-left:20px;margin-top:10px" /></div>
+
+                        <p style="color:white;font-size:large">You can shopping online in our application any time and any where.</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3 style="color:white">
+                            <i class="glyphicon glyphicon-search"></i>
+                            Fast Search
+                        </h3>
+                        <ul style="color:white">
+                            <li><a href="#" style="color:white">Mobile Phone</a></li>
+                            <li><a href="#" style="color:white">Tablet</a></li>
+                            <li><a href="#" style="color:white">Television</a></li>
+                            <li><a href="#" style="color:white">Computer</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <h3 style="color:white">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            Contact Us
+                        </h3>
+                        <ul style="color:white">
+                            <li><a href="#" style="color:white">Facebook</a></li>
+                            <li><a href="#" style="color:white">Youtube</a></li>
+                            <li><a href="#" style="color:white">Twieter</a></li>
+                            <li><a href="#" style="color:white">Send Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="subfooter" style="font-size:xx-large;color:black;text-align:center">
+                <p style="margin-left:10px">&copy; @DateTime.Now.Year E-MARKET</p>
+            </div>
+        </footer>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

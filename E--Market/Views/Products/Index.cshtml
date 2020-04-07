@@ -1,0 +1,107 @@
+﻿@model IEnumerable<E__Market.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .data {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: larger;
+        font-weight: bolder
+    }
+
+    .header-table {
+        color: darkblue;
+        font-size: x-large;
+        font-family: 'Times New Roman', Times, serif
+    }
+
+    h1 {
+        font-family: 'Aboriginebats One';
+        font-weight: 900;
+        color: midnightblue;
+        text-align: center
+    }
+</style>
+<h1>PRODUCT PAGE</h1>
+
+<a href="@Url.Action("Create", "Products")" target="_blank" class="btn btn-primary" style="text-align :center;margin-bottom:10px">
+    <span class="glyphicon glyphicon-plus"></span>
+    Add Product
+</a>
+
+@using (Html.BeginForm())
+{
+    <p>
+
+        Filter: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+
+
+}
+
+<table class="table">
+    <tr class="header-table">
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descroption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="data">
+            <td style="font-size:x-large">
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td style="font-size:x-large">
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td style="font-size:x-large">
+                <img src="@Url.Content(item.image)" width="200" height="200" />
+            </td>
+            <td style="font-size:x-large">
+                @Html.DisplayFor(modelItem => item.descroption)
+            </td>
+            <td style="font-size:x-large;text-align:center">
+                @Html.DisplayFor(modelItem => item.Category.name)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit","Products", new {  id = item.Id })" class="btn btn-success" target="_blank">
+                    <span class="glyphicon glyphicon-ok"> Edit</span>
+                </a>
+
+                <br />
+
+                <br />
+
+                <a href="@Url.Action("Delete","Products", new { id = item.Id })" class="btn btn-danger" target="_blank">
+                    <span class="glyphicon glyphicon-trash"> Delete</span>
+                </a>
+
+                <br />
+
+                <br />
+
+                <a href="@Url.Action("Details","Products", new { id = item.Id })" class="btn btn-warning" target="_blank">
+                    <span class="glyphicon glyphicon-camera"> Details</span>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>
